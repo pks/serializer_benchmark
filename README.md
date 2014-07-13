@@ -1,12 +1,12 @@
 Serializer Benchmark
 ====================
 
-Comparing parsing speed/memory usage of all C++ JSON libs I could find. Also including two msgpack implementations (C++/ruby).
-Goal is to output data.edges.last.rule.substr(1, 4).
-Data is fairly large and complex object (a hypergraph representation) with a lot of different types, e.g. strings (ASCII), ints, floats, arrays
+Comparing parsing speed/memory usage of all C++ JSON libs I could find. Also including two msgpack implementations (C++/Ruby).
+Goal is to output object.edges.last.rule.substr(1, 4).
+Data are fairly large and complex objects (hypergraph representations) with a lot of different types, e.g. strings (ASCII), ints, floats, arrays
 and sub-objects.
-Note that the comparison is unfair for some parsers, as they just do SAX-style parsing and do not actually fill objects
-with data (e.g. the cdec parser).
+Note that the comparison is unfair for some parsers, as they just do SAX-style parsing and do not actually fill "real" objects
+with data (e.g. the cdec json parser).
 
 * cdec-json-parser: ripped out of [1].
 * gason: git clone https://github.com/vivkin/gason.git
@@ -23,8 +23,8 @@ with data (e.g. the cdec parser).
 * rapidjson: git clone https://github.com/miloyip/rapidjson.git
 * sajson: git clone https://github.com/chadaustin/sajson.git
 
-You'll also need root privileges to clear the disk caches. Assumes these scripts [3]
-are in the PATH.
+To run the benchmark You'll need root privileges to clear the disk caches.
+The run scripts assume that these scripts [3] are in the PATH.
 
 Versions:
 ---------
@@ -42,24 +42,28 @@ Versions:
 * rapidjson: SHA-1 63d054349ab56d278060cd3373e76a6933cf194a
 * sajson: SHA-1 003988269f1774dfb184e1864f2f4e654965581e
 
-
+<code>
 [1] https://github.com/redpony/cdec/tree/master/decoder
 [2] http://fossil.wanderinghorse.net/repos/nosjob/index.cgi/index
 [3] https://github.com/pks/scripts
+</code>
 
 
 Results
 =======
 
-On my machine (Lenovo X61s) which has an SSD:
-Linux x 3.12.23 #1 SMP PREEMPT Fri Jul 4 15:09:43 CEST 2014 x86_64 Intel(R) Core(TM)2 Duo CPU L7500 @ 1.60GHz GenuineIntel GNU/Linux
+*Spoiler:* sajson and rapidjson are the fastest JSON parsers -- but msgpack is even faster.
 
-Spoiler: sajson and rapidjson are the fastest JSON parsers -- but msgpack is even faster.
+Benchmarks were run on my trusty laptop (IBM/Lenovo X61s): 
+Linux x 3.12.23 #1 SMP PREEMPT Fri Jul 4 15:09:43 CEST 2014 x86_64 Intel(R) Core(TM)2 Duo CPU L7500 @ 1.60GHz GenuineIntel GNU/Linux
+Disk is an Intel X25-E SSD.
+
 
 JSON parsing benchmark
 ----------------------
  REAPEAT=10
 
+<code>
 [test_cdec_json_parser]
 data/1020.json: 8.81 s
 data/1570.json: 3.07 s
@@ -202,12 +206,14 @@ data/748.json:  0.0 s
 ---
 overall: 0.6 s
  memory: 293 m
+</code>
 
 
 MSGPACK parsing benchmark
 -------------------------
  REAPEAT=10
 
+<code>
 [test_msgpack]
 data/1020.pak: 2.2 s
 data/1570.pak: 0.8 s
@@ -233,4 +239,5 @@ data/748.pak:  0.13 s
 ---
 overall: 0.5 s
  memory: 216 m
+</code>
 
