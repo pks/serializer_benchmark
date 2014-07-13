@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'msgpack'
+
+
+msg = MessagePack.unpack(File.new(ARGV[0]).read)
+
+STDERR.write "#{msg["edges"].last()["rule"][1..4]}\n"
+
