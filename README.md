@@ -4,7 +4,7 @@ Serializer Benchmark
 Comparing parsing speed/memory usage of all C++ JSON libs I could find. Also including two msgpack implementations (C++/Ruby).
 Goal is to output object.edges.last.rule.substr(1, 4).
 Data are fairly large and complex objects (hypergraph representations) with a lot of different types, e.g. strings (ASCII), ints, floats, arrays
-and sub-objects.
+and sub-objects. Download data here [4] and put in the data/ directory.
 Note that the comparison is unfair for some parsers, as they just do SAX-style parsing and do not actually fill "real" objects
 with data (e.g. the cdec json parser).
 
@@ -46,6 +46,7 @@ Versions:
 * [1] https://github.com/redpony/cdec/tree/master/decoder
 * [2] http://fossil.wanderinghorse.net/repos/nosjob/index.cgi/index
 * [3] https://github.com/pks/scripts
+* [4] http://simianer.de/serializer_benchmark_data.tar.gz
 
 
 Results
