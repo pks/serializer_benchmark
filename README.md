@@ -42,6 +42,7 @@ Versions:
 * rapidjson: SHA-1 63d054349ab56d278060cd3373e76a6933cf194a
 * sajson: SHA-1 003988269f1774dfb184e1864f2f4e654965581e
 
+---
 * [1] https://github.com/redpony/cdec/tree/master/decoder
 * [2] http://fossil.wanderinghorse.net/repos/nosjob/index.cgi/index
 * [3] https://github.com/pks/scripts
