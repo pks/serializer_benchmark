@@ -42,9 +42,9 @@ Versions:
 * rapidjson: SHA-1 63d054349ab56d278060cd3373e76a6933cf194a
 * sajson: SHA-1 003988269f1774dfb184e1864f2f4e654965581e
 
-    [1] https://github.com/redpony/cdec/tree/master/decoder
-    [2] http://fossil.wanderinghorse.net/repos/nosjob/index.cgi/index
-    [3] https://github.com/pks/scripts
+* [1] https://github.com/redpony/cdec/tree/master/decoder
+* [2] http://fossil.wanderinghorse.net/repos/nosjob/index.cgi/index
+* [3] https://github.com/pks/scripts
 
 
 Results
@@ -53,7 +53,9 @@ Results
 *Spoiler:* sajson and rapidjson are the fastest JSON parsers -- but msgpack is even faster.
 
 Benchmarks were run on my trusty laptop (IBM/Lenovo X61s): 
+<pre>
 Linux x 3.12.23 #1 SMP PREEMPT Fri Jul 4 15:09:43 CEST 2014 x86_64 Intel(R) Core(TM)2 Duo CPU L7500 @ 1.60GHz GenuineIntel GNU/Linux
+</pre>
 Disk is an Intel X25-E SSD.
 
 
@@ -61,7 +63,7 @@ JSON parsing benchmark
 ----------------------
  REAPEAT=10
 
-<code>
+<pre>
 [test_cdec_json_parser]
 data/1020.json: 8.81 s
 data/1570.json: 3.07 s
@@ -204,14 +206,14 @@ data/748.json:  0.0 s
 ---
 overall: 0.6 s
  memory: 293 m
-</code>
+</pre>
 
 
 MSGPACK parsing benchmark
 -------------------------
  REAPEAT=10
 
-<code>
+<pre>
 [test_msgpack]
 data/1020.pak: 2.2 s
 data/1570.pak: 0.8 s
@@ -237,5 +239,5 @@ data/748.pak:  0.13 s
 ---
 overall: 0.5 s
  memory: 216 m
-</code>
+</pre>
 
