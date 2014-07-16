@@ -25,8 +25,10 @@ test_picojson
 test_rapidjson
 test_sajson
 test_msgpack
+test_msgpack_streaming
 data/make_paks
-data/*.pak
+data/make_paks2
+data/*.pak*
 data/*.json
 data/*.gz
 data/*.in

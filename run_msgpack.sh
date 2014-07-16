@@ -15,12 +15,18 @@ echo
 
 for prg in \
   test_msgpack \
+  test_msgpack_streaming \
   test_msgpack_ruby
 do
   echo "[$prg]"
   sync; echo 3 > /proc/sys/vm/drop_caches
   echo > .overall_msgpack
-  for file in `ls -S data/*.pak`; do
+  if [[ $prg == test_msgpack_streaming ]]; then
+    A="2" 
+  else
+    A=""
+  fi
+  for file in `ls -S data/*.pak$A`; do
     echo "$file:\t$(./benchmark.rb $REPEAT ./$prg $file 2>/dev/null | tee -a .overall_msgpack | avg | round 2) s"
   done
   echo "---"

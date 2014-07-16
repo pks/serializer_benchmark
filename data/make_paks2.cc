@@ -106,19 +106,15 @@ main(int argc, char** argv)
 
   FILE* file = fopen(argv[2], "wb");
   msgpack::fbuffer fbuf(file);
-  msgpack::pack(fbuf, hg);
+  msgpack::pack(fbuf, hg.nodes.size());
+  msgpack::pack(fbuf, hg.edges.size());
+  msgpack::pack(fbuf, hg.weights);
+  for (auto it = hg.nodes.begin(); it != hg.nodes.end(); it++)
+    msgpack::pack(fbuf, *it);
+  for (auto it = hg.edges.begin(); it != hg.edges.end(); it++)
+    msgpack::pack(fbuf, *it);
+
   fclose(file);
-
-  /*ifstream ifs1(argv[2]);
-  string str1((istreambuf_iterator<char>(jfs1)),
-                   (istreambuf_iterator<char>()));
-
-	msgpack::zone zone;
-	msgpack::object obj;
-	msgpack::unpack(str1.data(), str1.size(), NULL, &zone, &obj);
-
-  Hg hg;
-	obj.convert(&hg);*/
 
   return 0;
 }

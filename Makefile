@@ -43,6 +43,9 @@ test_cdec_json_parser: test_cdec_json_parser.cc
 test_msgpack: test_msgpack.cc
 	 $(COMPILER) $(CXXFLAGS) test_msgpack.cc -I./msgpack-c/include/ ./msgpack-c/lib/libmsgpack.a -o test_msgpack
 
+test_msgpack_streaming: test_msgpack_streaming.cc
+	 $(COMPILER) $(CXXFLAGS) test_msgpack_streaming.cc -I./msgpack-c/include/ ./msgpack-c/lib/libmsgpack.a -o test_msgpack_streaming
+
 clean:
 	rm -f test_gason test_json-cpp test_jsoncpp test_libjson
 	rm -f test_picojson test_rapidjson test_sajson test_JsonBox
