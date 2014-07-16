@@ -30,5 +30,6 @@ data/make_paks
 data/make_paks2
 data/*.pak*
 data/*.json
-data/*.gz
 data/*.in
+data/*.gz
+data/*.md5

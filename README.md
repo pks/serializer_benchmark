@@ -46,7 +46,7 @@ Versions:
 * [1] https://github.com/redpony/cdec/tree/master/decoder
 * [2] http://fossil.wanderinghorse.net/repos/nosjob/index.cgi/index
 * [3] https://github.com/pks/scripts
-* [4] http://simianer.de/serializer_benchmark_data.tar.gz
+* [4] http://simianer.de/serializer-benchmark-data.tar.gz
 
 
 Results
