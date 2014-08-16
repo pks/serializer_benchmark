@@ -1,27 +1,36 @@
 [submodule "sajson"]
 	path = lib/sajson
 	url = https://github.com/chadaustin/sajson
+  ignore=dirty
 [submodule "rapidjson"]
 	path = lib/rapidjson
 	url = https://github.com/miloyip/rapidjson
+  ignore=dirty
 [submodule "picojson"]
 	path = lib/picojson
 	url = https://github.com/kazuho/picojson.git
+  ignore=dirty
 [submodule "msgpack-c"]
 	path = lib/msgpack-c
 	url = https://github.com/msgpack/msgpack-c.git
+  ignore=dirty
 [submodule "gason"]
 	path = lib/gason
 	url = https://github.com/vivkin/gason/
+  ignore=dirty
 [submodule "JsonBox"]
 	path = lib/JsonBox
 	url = https://github.com/anhero/JsonBox.git
+  ignore=dirty
 [submodule "jsoncpp"]
 	path = lib/jsoncpp
 	url = https://github.com/open-source-parsers/jsoncpp
+  ignore=dirty
 [submodule "jsonxx"]
 	path = lib/jsonxx
 	url = https://github.com/hjiang/jsonxx.git
+  ignore=dirty
 [submodule "json-cpp"]
 	path = lib/json-cpp
 	url = https://github.com/ascheglov/json-cpp.git
+  ignore=dirty
