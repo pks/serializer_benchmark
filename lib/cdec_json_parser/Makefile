@@ -3,5 +3,5 @@ all:
 	g++ json_parse.cc -c
 
 clean:
-	rm *.o
+	rm -f *.o
 

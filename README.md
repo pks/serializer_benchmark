@@ -12,7 +12,7 @@ with data (e.g. the cdec json parser).
 * gason: git clone https://github.com/vivkin/gason.git
 * JsonBox: git clone https://github.com/anhero/JsonBox.git
 * jsoncpp: git clone https://github.com/open-source-parsers/jsoncpp.git
-* json-cpp: wget "https://raw.githubusercontent.com/ascheglov/json-cpp/master/single_include/json-cpp.hpp"
+* json-cpp: git clone "https://github.com/ascheglov/json-cpp.git"
 * jsonxx: git clone https://github.com/hjiang/jsonxx.git
 * libjson: wget "http://downloads.sourceforge.net/project/libjson/libjson_7.6.1.zip?r=&ts=1405248411&use_mirror=heanet"
 * MicroJSON: wget http://grigory.info/distfiles/MicroJSON-0.3.2.tar.bz2
@@ -23,6 +23,8 @@ with data (e.g. the cdec json parser).
 * rapidjson: git clone https://github.com/miloyip/rapidjson.git
 * sajson: git clone https://github.com/chadaustin/sajson.git
 
+Put all libraries in lib/ and build as described by the authors of the respective
+library.
 To run the benchmark You'll need root privileges to clear the disk caches.
 The run scripts assume that these scripts [3] are in the PATH.
 

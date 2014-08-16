@@ -6,7 +6,7 @@
  * http://sourceforge.net/projects/libjson/
  *
  */
-#include "libjson/libjson.h"
+#include "libjson-7.6.1/libjson.h"
 
 using namespace std;
 

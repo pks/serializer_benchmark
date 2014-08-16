@@ -1,12 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <msgpack.hpp>
+#include <msgpack/fbuffer.h>
+#include <msgpack/fbuffer.hpp>
+
 
 /*
  * https://github.com/ascheglov/json-cpp
  *
  */
-#include "json-cpp.hpp"
+#include "json-cpp/single_include/json-cpp.hpp"
 
 using namespace std;
 
@@ -15,6 +19,8 @@ struct Node {
   int id;
   string cat;
   vector<int> span;
+
+  MSGPACK_DEFINE(id, cat, span);
 };
 
 struct Vector {
@@ -36,6 +42,8 @@ struct Vector {
   double PassThrough_6;
   double SampleCountF;
   double WordPenalty;
+
+	MSGPACK_DEFINE(CountEF, EgivenFCoherent, Glue, IsSingletonF, IsSingletonFE, LanguageModel, LanguageModel_OOV, MaxLexEgivenF, MaxLexFgivenE, PassThrough, PassThrough_1, PassThrough_2, PassThrough_3, PassThrough_4, PassThrough_5, PassThrough_6, SampleCountF, WordPenalty);
 };
 
 struct Edge {
@@ -44,19 +52,22 @@ struct Edge {
   vector<int> tails;
   Vector f;
   double weight;
+
+	MSGPACK_DEFINE(head, rule, tails, f, weight);
 };
 
 struct Hg {
   Vector weights;
   vector<Node> nodes;
   vector<Edge> edges;
-  vector<string> rules;
+
+  MSGPACK_DEFINE(weights, nodes, edges);
 };
 
 template<typename X> inline void
 serialize(jsoncpp::Stream<X>& stream, Hg& o)
 {
-  fields(o, stream, "weights", o.weights, "nodes", o.nodes, "edges", o.edges, "rules", o.rules);
+  fields(o, stream, "weights", o.weights, "nodes", o.nodes, "edges", o.edges);
 }
 
 template<typename X> inline void
@@ -92,8 +103,18 @@ main(int argc, char** argv)
   vector<Edge> edges;
   hg.edges = edges;
   jsoncpp::parse(hg, json_str);
-  Edge& last_edge = hg.edges.back();
-  cerr << last_edge.rule.substr(1, 4) << endl;
+
+  FILE* file = fopen(argv[2], "wb");
+  msgpack::fbuffer fbuf(file);
+  msgpack::pack(fbuf, hg.nodes.size());
+  msgpack::pack(fbuf, hg.edges.size());
+  msgpack::pack(fbuf, hg.weights);
+  for (auto it = hg.nodes.begin(); it != hg.nodes.end(); it++)
+    msgpack::pack(fbuf, *it);
+  for (auto it = hg.edges.begin(); it != hg.edges.end(); it++)
+    msgpack::pack(fbuf, *it);
+
+  fclose(file);
 
   return 0;
 }
