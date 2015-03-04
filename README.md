@@ -231,31 +231,31 @@ data/748.pak:   0.0 s
 overall:        0.47
  memory:        446 m
 
- [test_msgpack_streaming]
- data/1020.pak2: 0.8 s
- data/1570.pak2: 0.28 s
- data/1391.pak2: 0.18 s
- data/429.pak2:  0.06 s
- data/2002.pak2: 0.04 s
- data/1889.pak2: 0.01 s
- data/1495.pak2: 0.0 s
- data/748.pak2:  0.0 s
- ---
- overall:        0.17
-  memory:        175 m
+[test_msgpack_streaming]
+data/1020.pak2: 0.8 s
+data/1570.pak2: 0.28 s
+data/1391.pak2: 0.18 s
+data/429.pak2:  0.06 s
+data/2002.pak2: 0.04 s
+data/1889.pak2: 0.01 s
+data/1495.pak2: 0.0 s
+data/748.pak2:  0.0 s
+---
+overall:        0.17
+ memory:        175 m
 
-  [test_msgpack_ruby]
-  data/1020.pak:  1.94 s
-  data/1570.pak:  0.77 s
-  data/1391.pak:  0.52 s
-  data/429.pak:   0.24 s
-  data/2002.pak:  0.19 s
-  data/1889.pak:  0.14 s
-  data/1495.pak:  0.13 s
-  data/748.pak:   0.13 s
-  ---
-  overall:        0.5
-   memory:        224 m
+[test_msgpack_ruby]
+data/1020.pak:  1.94 s
+data/1570.pak:  0.77 s
+data/1391.pak:  0.52 s
+data/429.pak:   0.24 s
+data/2002.pak:  0.19 s
+data/1889.pak:  0.14 s
+data/1495.pak:  0.13 s
+data/748.pak:   0.13 s
+---
+overall:        0.5
+ memory:        224 m
 
 </pre>
 
